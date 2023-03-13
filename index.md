@@ -1,53 +1,64 @@
 ## Lab Report 3
 # Using the `grep` command
-1. `grep 'word' filename` This looks inside of filename and highlights every instance of the word
-```
-[cs15lwi23auu@ieng6-202]:OUP:457$ grep 'In' Abernathy/ch1.txt
-In the late 1940s, Bond Stores, the largest men’s clothing chain at the time, created a sensation in New York City by offering a wide selection of suits with two pairs of pants instead of one, reintroducing a level of product choice not seen since before the war.1 When the line of hopeful buyers at its Times Square store stretched around the block, Bond had to impose a limit of two suits per customer. During World War II, the apparel and textile industries had been converted to supply field jackets, overcoats, and uniforms to the U.S. and Allied Forces. But in the years immediately following the war, returning soldiers, the end of rationing, and pent-up customer demand meant apparel was in short supply.
-The most surprising aspect of this story is that today’s U.S. apparel and textile industries—left for dead by business commentators and economic analysts in the 1980s—have begun to transform themselves, reaping new competitive advantages. Although Bond Stores’ customers were thrilled by a suit with two pairs of pants, contemporary customers want and expect a huge range of choices, and the consumer desire for limitless variety has kept the American apparel industry alive. In 1995, for instance, American consumers purchased 28.7 outerwear garments (all coats, jackets, shirts, dresses, blouses, sweaters, trousers, slacks, and shorts) per capita; in China the estimated number of such garments was only 2 per capita.2
-Supply channels are not new, of course; for centuries, fabric-makers have sold their wares to those who cut and sew garments. But, until recently, most channels in the textile and apparel industries have been characterized by arm’s-length relationships among relatively autonomous firms. It is only since the mid-1980s that a number of market and technological changes have encouraged companies to enhance the links among different stages of production and distribution. Indeed, retailers like Wal-Mart Stores, Kmart Corporation, and Dillard’s Inc. have been the driving forces behind changes in manufacturing and logistics systems in a way that was unheard of in Bond Stores’ time. For instance, entrepreneur Sam Walton built a retail juggernaut that began with thirty-nine Wal-Mart stores in 1971 and grew to almost three thousand by 1996. He did so by insisting that suppliers implement information technologies for exchanging sales data, adopt standards for product labeling, and use modern methods of material handling that assured customers a variety of products at low prices.
-In many respects, our findings defy the conventional wisdom. When we began our research, we were advised by American industry participants to establish better performance measures—for example, how many minutes does it take to make a shirt? The traditional view holds that because manufacturing performance is determined by the labor time required to produce an item, then what applies to cars, for example, can also apply to clothing; therefore, U.S. apparel manufacturers might be able to save themselves by improving assembly operations.3 Yet after years of studying hundreds of American apparel firms, we have found that direct labor content is not the primary issue. The companies that have adopted new information systems and management practices, participating in a well-integrated channel, are the ones with the strongest performance today—not those that have simply improved assembly operations...
-```
-Another example would be
-```
-[cs15lwi23auu@ieng6-202]:skill-demo1-data:478$ grep 'Lucayans' written_2/travel_guides/berlitz2/Bahamas-History.txt
-Centuries before the arrival of Columbus, a peaceful Amerindian people who called themselves the Luccucairi had settled in the Bahamas. Originally from South America, they had traveled up through the Caribbean islands, surviving by cultivating modest crops and from what they caught from sea and shore. Nothing in the experience of these gentle people could have prepared them for the arrival of the Pinta, the Niña, and the Santa Maria at San Salvador on 12 October 1492. Columbus believed that he had reached the East Indies and mistakenly called these people Indians. We know them today as the Lucayans. Columbus claimed the island and others in the Bahamas for his royal Spanish patrons, but not finding the gold and other riches he was seeking, he stayed for only two weeks before sailing towards Cuba.
-The Spaniards never bothered to settle in the Bahamas, but the number of shipwrecks attest that their galleons frequently passed through the archipelago en route to and from the Caribbean, Florida, Bermuda, and their home ports. On Eleuthera the explorers dug a fresh-water well — at a spot now known as “Spanish Wells” — which was used to replenish the supplies of water on their ships before they began the long journey back to Europe with their cargoes of South American gold. As for the Lucayans, within 25 years all of them, perhaps some 30,000 people, were removed from the Bahamas to work — and die — in Spanish gold mines and on farms and pearl fisheries on Hispaniola (Haiti), Cuba, and elsewhere in the Caribbean...
-```
-This is useful because it helps us when we're finding a needle in a hay stack. The word In and Lucayans is highlighted inside of the terminal, however, it isn't here. It just makes it easier, instead of having to go to the file and search for every instance of the word, the grep command just tells and shows you where it is.  
-2. `grep -c word file` counts the number of times the word is used inside the file
-```
-[cs15lwi23auu@ieng6-202]:skill-demo1-data:479$ grep -c Lucayans written_2/travel_guides/berlitz2/Bahamas-History.txt
-2
-```
-Another example would be
-```
-[cs15lwi23auu@ieng6-202]:written_2:486$ grep -c In non-fiction/OUP/Abernathy/ch1.txt
-27
-```
-This is useful because it helps us figure out how many times a phrase or word is used in file. It makes it easier then counting every time we see a file and it more accurately then when a human does it.   
-3. `grep -R term` finds the file path and lists where you could find the file 
-```
-[cs15lwi23auu@ieng6-202]:written_2:491$ grep -R 'Just north of Puerto' 
-travel_guides/berlitz2/CanaryIslands-WhereToGo.txt:Just north of Puerto, on the road to La Orotavo, there are two places, both open daily 9am–6pm, that have similar themes, but exhibit them in rather different ways. The oldest of these, and closest to town, is undoubtedly the Jardín Botánico (Botanical Garden), founded by royal decree in 1788. Covering some 2.5 hectares (6 acres), it has palms of every variety and the centerpiece is a huge South American fig tree whose enormous branches and roots have become intertwined into one great tree house. Further on, Bananera El Guanche provides fascinating insight into how a Canarian banana plantation operates. By way of a multi-lingual introductory video show, a surprisingly informative and entertaining brochure, and exhibits in its 12,000-sq-m (nearly 3-acre) park which boasts, besides numerous bananas, a superb collection of exotic trees, shrubs, flowers, and cacti from all over the world (open daily 9am–6pm; admission 1,000 ptas, r6.01).
-```
-Another example would be
-```
-[cs15lwi23auu@ieng6-202]:written_2:495$ grep -R 'Pirates Well harks back'  
-travel_guides/berlitz2/Bahamas-WhereToGo.txt:This island 75 miles (120 km) east of Acklins Island, is perhaps the least visited and least developed of all the inhabited Bahamas islands. It has few telephones and electric power is only a recent development. The settlement of Pirates Well harks back to the days when it was a safe outpost for ruthless gangs, but today’s population makes a living from fishing and farming.
-```
-This would be useful because it combines two commands into one. It finds both the path of the file and prints and highlights the word that was sought after for. It saves time because you won't have to look for the path nor look for each instace of the word.  
-4. ` GREP_COLOR='1;35' grep --color=always 'word' file` This changes the color of the highlighted word to your choise
-```
-[cs15lwi23auu@ieng6-202]:written_2:504$ GREP_COLOR='1;35' grep --color=always 'Just north of Puerto' travel_guides/berlitz2/CanaryIslands-WhereToGo.txt
-Just north of Puerto, on the road to La Orotavo, there are two places, both open daily 9am–6pm, that have similar themes, but exhibit them in rather different ways. The oldest of these, and closest to town, is undoubtedly the Jardín Botánico (Botanical Garden), founded by royal decree in 1788. Covering some 2.5 hectares (6 acres), it has palms of every variety and the centerpiece is a huge South American fig tree whose enormous branches and roots have become intertwined into one great tree house. Further on, Bananera El Guanche provides fascinating insight into how a Canarian banana plantation operates. By way of a multi-lingual introductory video show, a surprisingly informative and entertaining brochure, and exhibits in its 12,000-sq-m (nearly 3-acre) park which boasts, besides numerous bananas, a superb collection of exotic trees, shrubs, flowers, and cacti from all over the world (open daily 9am–6pm; admission 1,000 ptas, r6.01).
-```
-Another example would be
-```
-[cs15lwi23auu@ieng6-202]:written_2:506$ GREP_COLOR='1;36' grep --color=always 'Lucayans' travel_guides/berlitz2/Bahamas-History.txt
-Centuries before the arrival of Columbus, a peaceful Amerindian people who called themselves the Luccucairi had settled in the Bahamas. Originally from South America, they had traveled up through the Caribbean islands, surviving by cultivating modest crops and from what they caught from sea and shore. Nothing in the experience of these gentle people could have prepared them for the arrival of the Pinta, the Niña, and the Santa Maria at San Salvador on 12 October 1492. Columbus believed that he had reached the East Indies and mistakenly called these people Indians. We know them today as the Lucayans. Columbus claimed the island and others in the Bahamas for his royal Spanish patrons, but not finding the gold and other riches he was seeking, he stayed for only two weeks before sailing towards Cuba.
-The Spaniards never bothered to settle in the Bahamas, but the number of shipwrecks attest that their galleons frequently passed through the archipelago en route to and from the Caribbean, Florida, Bermuda, and their home ports. On Eleuthera the explorers dug a fresh-water well — at a spot now known as “Spanish Wells” — which was used to replenish the supplies of water on their ships before they began the long journey back to Europe with their cargoes of South American gold. As for the Lucayans, within 25 years all of them, perhaps some 30,000 people, were removed from the Bahamas to work — and die — in Spanish gold mines and on farms and pearl fisheries on Hispaniola (Haiti), Cuba, and elsewhere in the Caribbean.
-```
-Like the time, you can not see how the colors look here but on the terminal it turned from red to purple, and now its blue. This just helps differentiates different words from the same file with association.    
 
-# I used this [this](https://www.cyberciti.biz/faq/howto-use-grep-command-in-linux-unix/) to research how the `grep` command works.
+1. `grep 'phrase' file` This looks inside of file and prints every line / paragraph containing the phrase
+
+`grep 'devoted' Abernathy/ch1.txt`
+
+![image](https://user-images.githubusercontent.com/122569112/224841104-10f8b50e-c1fd-4826-b039-6d9ee6cd9685.png)
+
+Here's another example:
+
+`grep 'Lucayans' travel_guides/berlitz2/Bahamas-History.txt`
+
+![image](https://user-images.githubusercontent.com/122569112/224841311-748a42dd-a62c-4b71-b55d-cf95b6d06960.png)
+
+This command is useful for finding instances of phrases in a file. Instead of having to open a file and search through it manually, the grep command
+shows the instances if they are there, and tells you where as well.
+
+2. `grep -c 'phrase' file` counts the number of times the phrase is used inside the file
+`grep -c Lucayans written_2/travel_guides/berlitz2/Bahamas-History.txt`
+
+![image](https://user-images.githubusercontent.com/122569112/224841968-827028d8-0120-4b17-96eb-b387a7ecd7a8.png)
+
+Here's another example:
+
+`grep -c In non-fiction/OUP/Abernathy/ch1.txt`
+
+![image](https://user-images.githubusercontent.com/122569112/224842117-7b721c52-b5c1-4037-9523-ffb360c07295.png)
+
+This helps us find how many times a certain phrase is within a file, and is useful for statistics purposes or just generally for counting when it would be
+difficult to find all of the uses manually.
+
+3. `grep -R phrase` finds the file path and lists where you could find the file 
+
+`grep -R 'Just north of Puerto'`
+
+![image](https://user-images.githubusercontent.com/122569112/224842602-a03f3619-ced0-4ae3-8998-675851d99d41.png)
+
+Here's another example:
+
+`grep -R 'Pirates Well harks back'`
+
+![image](https://user-images.githubusercontent.com/122569112/224842785-c603daf5-57e3-4fc4-a34c-28b312dd16bc.png)
+
+This helps to find instances of a phrase in an unknown file or location. This is useful in the case where a user doesn't know where they stored a specific
+piece of information.
+
+4. ` GREP_COLOR='1;35' grep --color=always 'word' file` This command finds the given phrase and highlights it in a given color.
+
+`GREP_COLOR='1;35' grep --color=always 'Just north of Puerto' travel_guides/berlitz2/CanaryIslands-WhereToGo.txt`
+
+![image](https://user-images.githubusercontent.com/122569112/224847149-dde8e579-7061-4a91-bcf1-7c8e3343f16c.png)
+
+Here's one more example:
+
+`GREP_COLOR='1;36' grep --color=always 'Lucayans' travel_guides/berlitz2/Bahamas-History.txt`
+
+![image](https://user-images.githubusercontent.com/122569112/224847795-df85e498-f742-49aa-8499-53f06461dfb0.png)
+
+
+Depending on the GREP_COLOR, the color of the found word in the file is changed. This helps save a little bit of time. Also, in a bash script this could be
+used for advanced color coding of a given dataset.
+
+# Research source: [this website](https://www.cyberciti.biz/faq/howto-use-grep-command-in-linux-unix/) .
