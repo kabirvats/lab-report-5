@@ -1,4 +1,4 @@
-## Lab Report 3
+## Lab Report 5
 # Using the `grep` command
 
 1. `grep 'phrase' file` This looks inside of file and prints every line / paragraph containing the phrase
